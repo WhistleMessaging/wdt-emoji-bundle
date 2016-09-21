@@ -17,10 +17,22 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 .wdt-emoji-picker {
   position: absolute;
   right: 5px;
-  bottom: 5px;
+  bottom: 21px;
 
   width: 20px;
   height: 20px;
+  font-size: 1.4rem;
+  color: grey;
+}
+
+.wdt-emoji-picker:hover {
+  color: #666;
+  transform: scale(1.2);
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2);
+}
+.wdt-emoji-picker i {
+  vertical-align: top;
 }
 
 .wdt-emoji-picker:hover {
@@ -29,6 +41,7 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 
 .wdt-emoji-picker-parent {
   position: relative;
+  height: 57px;
 }
 
 .wdt-emoji-picker span.emoji-outer.emoji-sizer {
@@ -40,18 +53,18 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 
 /* bundle popup styles */
 .wdt-emoji-popup {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-
-  visibility: hidden;
+  bottom: 0;
+  // visibility: hidden;
 
   width: 357px;
   max-width: 100%;
   height: 357px;
   max-height: 100%;
 
-  transition: opacity 50ms ease, bottom 1s ease-out;
+  transition: opacity 50ms ease;
 
   opacity: 0;
   border: 1px solid #dedede;
@@ -62,7 +75,7 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 }
 
 .wdt-emoji-popup.open {
-  visibility: visible;
+  // visibility: visible;
 
   opacity: 1;
 }
