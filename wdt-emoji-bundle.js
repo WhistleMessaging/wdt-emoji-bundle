@@ -331,8 +331,23 @@
       }
     } else {
       recentList.unshift(emData);
-      this.popup.querySelector('div[data-emoji-group="Recent"]')
-        .insertBefore(em, this.popup.querySelector('div[data-emoji-group="Recent"]').childNodes[0]);
+
+      var emojiSection = document.createElement('div'),
+            emojiTitle = document.createElement('h3'),
+          emojiListDiv = document.createElement('div');
+
+      emojiTitle.innerHTML = 'Recent';
+      emojiTitle.dataset.emojiGroup = 'Recent';
+      emojiListDiv.dataset.emojiGroup = 'Recent';
+
+      addClass(emojiListDiv, 'wdt-emoji-list');
+      addClass(emojiSection, 'wdt-emoji-section');
+
+      emojiSection.appendChild(emojiTitle);
+      emojiSection.appendChild(emojiListDiv);
+      this.popup.querySelector('.wdt-emoji-sections').insertBefore(emojiSection, this.popup.querySelector('.wdt-emoji-sections').childNodes[0]);
+
+      emojiListDiv.appendChild(em);
     }
 
     if (recentList.length > 16) {
@@ -353,7 +368,7 @@
 
   wdtEmojiBundle.getLocalStorage = function () {
     if (window.localStorage) {
-      return JSON.parse(localStorage.getItem(wdtEmojiBundle.defaults.uid + '_emojis'));
+      return JSON.parse(localStorage.getItem(wdtEmojiBundle.defaults.uid + '_emojis')) || [];
     }
   };
 
@@ -427,11 +442,12 @@
       var selection = getSelection(wdtEmojiBundle.input);
       replaceText(wdtEmojiBundle.input, selection, ':' + this.dataset.wdtEmojiShortname + ':');
       fire('select', {el: wdtEmojiBundle.input, event: event, emoji: ':' + this.dataset.wdtEmojiShortname + ':'});
-      wdtEmojiBundle.addRecent(this);
 
       var ce = new CustomEvent('input');
       wdtEmojiBundle.input.dispatchEvent(ce);
       wdtEmojiBundle.close();
+
+      wdtEmojiBundle.addRecent(this);
 
       return false;
     });
