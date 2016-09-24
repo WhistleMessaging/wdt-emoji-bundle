@@ -26,17 +26,24 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 }
 
 .wdt-emoji-picker:hover {
+  cursor: pointer;
   color: #666;
   transform: scale(1.2);
   -ms-transform: scale(1.2); /* IE 9 */
   -webkit-transform: scale(1.2);
+  -webkit-transition: all 50ms ease-out 0s;
+  -moz-transition: all 50ms ease-out 0s;
+  transition: all 50ms ease-out 0s;
 }
 .wdt-emoji-picker i {
   vertical-align: top;
+  border-radius: 50%;
+  height: 19px;
+  width: 19px;
 }
 
-.wdt-emoji-picker:hover {
-  cursor: pointer;
+.wdt-emoji-picker:hover i {
+  background: #ffc824;
 }
 
 .wdt-emoji-picker-parent {

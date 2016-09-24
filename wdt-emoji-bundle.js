@@ -196,7 +196,7 @@
     wdtEmojiBundle.closePickers();
 
     addClass(this, 'wdt-emoji-picker-open');
-    this.innerHTML = '<i class="fa fa-meh-o emoji-button"></i>';
+    this.innerHTML = '<i class="fa fa-smile-o emoji-button"></i>';
   };
 
   /**
@@ -325,7 +325,7 @@
       if (!match) {
         recentList.unshift(emData);
         this.popup.querySelector('div[data-emoji-group="Recent"]')
-          .insertBefore(em, this.popup.querySelector('div[data-emoji-group="Recent"]').childNodes[0]);
+          .insertBefore(em.cloneNode(true), this.popup.querySelector('div[data-emoji-group="Recent"]').childNodes[0]);
       } else {
         //possibly some magic, reseting shifting to first position here.
       }
@@ -347,7 +347,7 @@
       emojiSection.appendChild(emojiListDiv);
       this.popup.querySelector('.wdt-emoji-sections').insertBefore(emojiSection, this.popup.querySelector('.wdt-emoji-sections').childNodes[0]);
 
-      emojiListDiv.appendChild(em);
+      emojiListDiv.appendChild(em.cloneNode(true));
     }
 
     if (recentList.length > 16) {
