@@ -154,6 +154,7 @@
       };
 
       pos.left = pos.left < 0 ? 0 : pos.left;
+      pos.top = pos.top < 0 ? 0 : pos.top;
 
       if (elRect.left + popupRect.width > bodyRect.width - 20) {
         pos.left = bodyRect.width - popupRect.width - 20;
