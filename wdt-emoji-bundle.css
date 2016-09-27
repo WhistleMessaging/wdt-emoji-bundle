@@ -163,7 +163,7 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
   position: absolute;
   z-index: 4;
 
-  width: 330px;
+  width: 313px;
 }
 
 .wdt-emoji-scroll-wrapper {
@@ -177,6 +177,7 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 
 .wdt-emoji-sections {
   padding: 0 5px;
+  padding-right: 0;
 }
 
 .wdt-emoji {
@@ -186,7 +187,7 @@ body[data-wdt-emoji-bundle='apple'] .wdt-emoji[data-has-img-apple='false'] {
 
   display: inline-block;
 
-  margin-right: 2.5px !important;
+  margin-right: 4px !important;
   margin-bottom: 1px;
   padding: 6px;
 
@@ -502,4 +503,61 @@ and (orientation: portrait) {
   .wdt-emoji-popup h3.sticky {
     width: 359px;
   }
+}
+
+.wdt-emoji-selected-skin {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  padding: 2px 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 100ms ease-out 0s;
+}
+
+.wdt-emoji-selected-skin:hover {
+  background: #fff;
+}
+
+.wdt-emoji-skins-list {
+  position: absolute;
+  top: 16px;
+  right: 43px;
+  padding-top: 2px;
+  padding-left: 4px;
+  width: 0px;
+  overflow: hidden;
+  height: 32px;
+  border-radius: 4px;
+  transition: width 300ms ease-out 0s;
+}
+#wdt-emoji-skin-tone-picker.open .wdt-emoji-selected-skin {
+  background: #fff;
+}
+#wdt-emoji-skin-tone-picker.open .wdt-emoji-skins-list {
+  width: 118px;
+  background: #fff;
+}
+
+.wdt-emoji-popup.skin_tone_0 .skin_tone:not(.skin_tone_0),
+.wdt-emoji-popup.skin_tone_2 .skin_tone:not(.skin_tone_2),
+.wdt-emoji-popup.skin_tone_3 .skin_tone:not(.skin_tone_3),
+.wdt-emoji-popup.skin_tone_4 .skin_tone:not(.skin_tone_4),
+.wdt-emoji-popup.skin_tone_5 .skin_tone:not(.skin_tone_5),
+.wdt-emoji-popup.skin_tone_6 .skin_tone:not(.skin_tone_6) {
+  display:none!important
+}
+
+.wdt-search-container {
+  position: relative;
+}
+.wdt-search-container:before {
+  content: '\f002';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 18px;
+  top: 10px;
+  font-family: FontAwesome;
+  color: #aaa;
 }
