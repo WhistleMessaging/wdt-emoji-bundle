@@ -164,6 +164,10 @@
         pos.left = bodyRect.width - popupRect.width - 20;
       }
 
+      if (elRect.bottom < popupRect.height) {
+        pos.top = elRect.bottom + 15;
+      }
+
       pos.left += 'px';
       pos.top += 'px';
 
@@ -243,8 +247,6 @@
       if (sortedSections.hasOwnProperty(title)) {
         var emojiList = sortedSections[title],
           emojiOrders = [];
-
-          console.log(title);
 
         if (emojiList.length) {
           var emojiSection = document.createElement('div'),
