@@ -164,8 +164,8 @@
         pos.left = bodyRect.width - popupRect.width - 20;
       }
 
-      if (elRect.bottom < popupRect.height) {
-        pos.top = elRect.bottom + 15;
+      if ($(el).offset().top < popupRect.height) {
+        pos.top = $(el).offset().top + 45;
       }
 
       pos.left += 'px';
@@ -519,6 +519,7 @@
    */
   wdtEmojiBundle.close = function () {
     removeClass(wdtEmojiBundle.popup, 'open');
+    css(wdtEmojiBundle.popup, { top : 0 });
     wdtEmojiBundle.closePickers();
   };
 
