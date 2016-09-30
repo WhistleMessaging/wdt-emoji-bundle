@@ -928,6 +928,8 @@
       };
     }
 
+    console.log(result);
+
     return result;
   };
 
@@ -941,15 +943,21 @@
   var replaceText = function (el, selection, emo) {
     var val = el.value || el.innerHTML || '';
 
+    if (val === $(el).attr('placeholder')) {
+      val = '';
+      selection.len = 0;
+    }
+
     if (selection.ce) { // if contenteditable
       el.focus();
       document.execCommand('insertText', false, emo);
     } else {
       el.value = val.substring(0, selection.start) + emo + val.substring(selection.end, selection.len);
-
+      $(el).val(el.value);
       // @todo - [needim] - check browser compatibilities
       el.selectionStart = el.selectionEnd = selection.start + emo.length;
       el.focus();
+      console.log(el.value);
     }
   };
 
