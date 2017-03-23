@@ -839,7 +839,7 @@
           for (var i = 0; i < stickers.length; i++) {
             removeClass(stickers[i], 'sticky');
             css(stickers[i], {top: null});
-            css(stickers[i].parentNode, {'padding-top': null});
+            // css(stickers[i].parentNode, {'padding-top': null});
           }
         }
 
